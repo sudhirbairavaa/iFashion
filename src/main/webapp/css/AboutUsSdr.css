@@ -1,0 +1,177 @@
+#nav_bar{
+    width: 100vw;
+    height: 3em;
+    background-color: rgb(55, 54, 54);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position:sticky;
+    top:0px;
+    z-index:2;
+    align-items:center;
+}
+.cart{
+    color: rgb(33, 31, 31);
+    font-size: 1em;
+    position: relative;
+     left: -5em;
+
+}
+/* img:hover{
+    background-color: red;
+} */
+.admin:hover{
+    color: red;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.admin{
+    color: white;
+    font-size: 1em;
+    position: relative;
+     left: -3em; 
+}
+#nav_main{
+    width: 100ew;
+    height: 6em;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     position:sticky;
+    top:3em;
+    z-index:2;
+}
+#nav_child1{
+    width: 30%;
+    text-align: center;
+}
+#nav_child2{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3em;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.nav_child:hover{
+    color: red;
+}
+#nav_child3{
+    width: 20%;
+    display: flex;
+    justify-content: end;
+}
+
+.parent{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.child1{
+    position: relative;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: brown;
+}
+.im{
+    background-image: url("https://cdn.pixabay.com/photo/2016/04/19/13/39/store-1338629_640.jpg");
+    background-size:cover ;
+    height: 600px;
+    width: 1000px;
+    position: relative;
+    left: 250px;
+    margin-bottom: 200px;
+}
+.child2{
+    display: flex;
+    justify-content: center;
+    font-style: oblique;
+    color: rgb(170, 129, 129);
+}
+.parent2{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.child3{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    color: rgb(219, 133, 29);
+}
+.im1{
+    background-image: url("https://preview.colorlib.com/theme/shionhouse/assets/img/gallery/about2.png");
+    background-size: cover;
+    height: 600px;
+    width: 1000px;
+    position: relative;
+    left: 250px;
+    margin-bottom: 200px;
+   
+}
+.child4{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 200px;
+    font-style: oblique;
+    color: rgb(158, 111, 111);
+}
+.parent3{
+    position: relative;
+    bottom: 100px;
+    display: flex;
+    width: 98%;
+    margin: 0 auto;
+}
+.child6{
+    position: relative;
+    top: 10px;
+    font-style: oblique;
+    color: rgb(169, 101, 101);
+}
+.child5 h1{text-align: center;
+ color: rgb(171, 96, 96);
+}
+.parent4{
+    display: flex;
+   justify-content: space-between;
+   width: 80%;
+   margin: 0 auto;
+   /* gap: 5px; */
+}
+.im2,.im3,.im4,.im5{
+    width: 20%;
+
+}
+.grandparent{
+   height: 300px;
+    background-color: rgb(227, 223, 223);
+    width: 100%;
+    position: relative;
+    top: 10px;
+
+}
+.parent5{
+    width: 95%;
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 auto;
+}
+.p1{
+    padding: 8px;
+    
+}
+.parent10{
+    position: relative;
+    top: 10%;
+}

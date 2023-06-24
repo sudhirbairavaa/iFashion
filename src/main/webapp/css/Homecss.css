@@ -1,0 +1,81 @@
+#nav_bar{
+    width: 100vw;
+    height: 3em;
+    background-color: rgb(55, 54, 54);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position:sticky;
+    top:0px;
+    z-index:2;
+    align-items:center;
+}
+.cart{
+    color: rgb(33, 31, 31);
+    font-size: 1em;
+    position: relative;
+     left: -5em;
+
+}
+/* img:hover{
+    background-color: red;
+} */
+.admin:hover{
+    color: red;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.admin{
+    color: white;
+    font-size: 1em;
+    position: relative;
+     left: -3em; 
+}
+#nav_main{
+    width: 100ew;
+    height: 6em;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     position:sticky;
+    top:3em;
+    z-index:2;
+}
+#nav_child1{
+    width: 30%;
+    text-align: center;
+}
+#nav_child2{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3em;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+.nav_child:hover{
+    color: red;
+}
+#nav_child3{
+    width: 20%;
+    display: flex;
+    justify-content: end;
+}
+
+h1{
+    font-size: 50px;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+#main_body{
+    width:100vw;
+    height: 50vw;
+    background-color: aqua;
+}
+footer{
+    background-color: rgb(230, 230, 231);
+}
