@@ -4,63 +4,98 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.protech.ifashion.dto.product;
-import com.protech.ifashion.repository.ProductRepository;
+import com.protech.ifashion.dto.Product;
+import com.protech.ifashion.service.AdminService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
-@Autowired
-ProductRepository repository;
+	@Autowired
+	AdminService adminService;
 
-	@PostMapping("/adminlogin")
-	public ModelAndView simple(@RequestParam String user, @RequestParam String pass) {
+	@GetMapping("/login")
+	public String gotoAdminLogin() {
+		return "AdminLogin";
+	}
 
-		ModelAndView view=new ModelAndView();
-		
-		if (user.equals("admin")) {
-			if (pass.equals("admin")) {
-				view.setViewName("/adminOperation");
-				view.addObject("pass", "Login Success");
-			} else {
-				view.setViewName("/AdminLogin");
-				view.addObject("fail", "Enter proper Password");
-			}
+	@PostMapping("/login")
+	public String simple(@RequestParam String user, @RequestParam String pass, HttpSession session, ModelMap model) {
+		return adminService.login(user, pass, session, model);
+	}
+
+	@GetMapping("/home")
+	public String gotoHome() {
+		return "AdminHome";
+	}
+
+	@GetMapping("/insert")
+	public String admininsert(HttpSession session, ModelMap model) {
+		if (session.getAttribute("admin") == null) {
+			model.put("fail", "Session Expired");
+			return "AdminHome";
 		} else {
-			view.setViewName("/AdminLogin");
-			view.addObject("fail", "Enter proper Email");
+			return "AdminInsert";
 		}
-		
-		return view;
 	}
-	@GetMapping("/")
-	public ModelAndView homepage()
-	{
-		ModelAndView view=new ModelAndView();
-		view.setViewName("/Home");
-		return view;
+
+	@GetMapping("/update")
+	public String adminupdate(HttpSession session, ModelMap model) {
+		if (session.getAttribute("admin") == null) {
+			model.put("fail", "Session Expired");
+			return "AdminHome";
+		} else {
+			return "AdminUpdate";
+		}
 	}
-	@PostMapping("/insertproduct")
-	public ModelAndView insertproduct(@ModelAttribute product prod,@RequestParam MultipartFile pic) throws IOException
-	{
-		ModelAndView view=new ModelAndView();
-		
-		byte[] image=new byte [pic.getInputStream().available()];
-		pic.getInputStream().read(image);
-		
-		prod.setImage(image);
-		repository.save(prod);
-		
-		view.setViewName("/adminOperation");
-		view.addObject("pass","product added success");
-		return view;
+
+	@GetMapping("/delete")
+	public String admindelete(HttpSession session, ModelMap model) {
+		if (session.getAttribute("admin") == null) {
+			model.put("fail", "Session Expired");
+			return "AdminHome";
+		} else {
+			return "AdminDelete";
+		}
+	}
+
+	@PostMapping("/insert")
+	public String insertproduct(@ModelAttribute Product product, @RequestParam MultipartFile pic, ModelMap model)
+			throws IOException {
+		return adminService.insert(product, pic, model);
+
+	}
+
+	@PostMapping("/update")
+	public String updateproduct(@ModelAttribute Product product, @RequestParam MultipartFile pic, ModelMap model)
+			throws IOException {
+		return adminService.update(product, pic, model);
+	}
+
+	@PostMapping("/delete")
+	public String deleteproduct(@RequestParam int id, ModelMap model) {
+		return adminService.delete(id, model);
+
+	}
+
+	@GetMapping("/products")
+	public String fetchAllProduct(HttpSession session, ModelMap model) {
+		return adminService.fetchProducts(session, model);
+	}
+
+	@GetMapping("/customers")
+	public String fetchAllCustomer(HttpSession session, ModelMap model) {
+		return adminService.fetchCustomers(session, model);
+
 	}
 
 }
-	

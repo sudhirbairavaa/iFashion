@@ -9,19 +9,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 
-@Entity
 @Component
-public class Product {
+@Entity
+public class Item {
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 int id;
-String category;
-String subcategory;
 String name;
-String brand;
-String size;
+int quantity;
 double price;
-
 @Lob
 @Column(columnDefinition = "MEDIUMBLOB")
 byte[] image;
@@ -34,22 +30,6 @@ public void setId(int id) {
 	this.id = id;
 }
 
-public String getCategory() {
-	return category;
-}
-
-public void setCategory(String category) {
-	this.category = category;
-}
-
-public String getSubcategory() {
-	return subcategory;
-}
-
-public void setSubcategory(String subcategory) {
-	this.subcategory = subcategory;
-}
-
 public String getName() {
 	return name;
 }
@@ -58,20 +38,12 @@ public void setName(String name) {
 	this.name = name;
 }
 
-public String getBrand() {
-	return brand;
+public int getQuantity() {
+	return quantity;
 }
 
-public void setBrand(String brand) {
-	this.brand = brand;
-}
-
-public String getSize() {
-	return size;
-}
-
-public void setSize(String size) {
-	this.size = size;
+public void setQuantity(int quantity) {
+	this.quantity = quantity;
 }
 
 public double getPrice() {
@@ -82,6 +54,11 @@ public void setPrice(double price) {
 	this.price = price;
 }
 
+public int getID() {
+	return id;
+
+}
+
 public byte[] getImage() {
 	return image;
 }
@@ -89,6 +66,7 @@ public byte[] getImage() {
 public void setImage(byte[] image) {
 	this.image = image;
 }
+
 
 
 }

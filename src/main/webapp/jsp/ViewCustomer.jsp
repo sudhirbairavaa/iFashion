@@ -1,3 +1,4 @@
+<%@page import="com.protech.ifashion.dto.Customer"%>
 <%@page import="org.apache.commons.codec.binary.Base64"%>
 <%@page import="com.protech.ifashion.dto.Product"%>
 <%@page import="java.util.List"%>
@@ -101,49 +102,40 @@ td{
 </head>
 <body>
 
-<%List<Product> list=(List<Product>)request.getAttribute("list");%>
+<%List<Customer> list=(List<Customer>)request.getAttribute("list");%>
     <div class="main">
         <nav>
            <div class="container">
             <div><a href="/admin/home" target="_blank" style="text-decoration: none;font-size: 20px;color: black;">Home</a></div>
-            
+           
           </div>
         </nav>
     
 
 
     <div id="cart_imagehead">
-        <h1> Admin Cart Table</h1>
+        <h1> Customer Details</h1>
     </div>
       <table style="text-align: center;" id="cart_table" cellspacing="5em" cellpadding="50em" border="2em">
        
         <tr id="cart_head">
-            <td style="text-align: center;padding: 20px;"><h3>Product ID</h3></td>
-            <td style="text-align: center;padding: 20px;"><h3>Product Brand</h3></td>
-            <td style="text-align: center;padding: 20px;"><h3>Product Image</h3></td>
-            <td style="text-align: center;padding: 20px;"><h3>Product Name</h3></td>
-            <td style="text-align: center;padding: 20px;"><h3>Price</h3></td>
-            <td style="text-align: center;padding: 20px;"><h3>Quantity</h3></td>
+            <td style="text-align: center;padding: 20px;"><h3>customer ID</h3></td>
+            <td style="text-align: center;padding: 20px;"><h3>customer First Name</h3></td>
+            <td style="text-align: center;padding: 20px;"><h3>customer Last Name</h3></td>
+            <td style="text-align: center;padding: 20px;"><h3>customer Email</h3></td>
+            <td style="text-align: center;padding: 20px;"><h3>customer Mobile</h3></td>
         </tr>
-        <%for(Product prod:list){ %>
+        <%for(Customer cust:list){ %>
         
        
         <tr>
-            <td style="text-align: center;"><%=prod.getId() %></td>
-            <td style="text-align: center;"><%=prod.getBrand() %></td>
+            <td style="text-align: center;"><%=cust.getId() %></td>
+            <td style="text-align: center;"><%=cust.getFname() %></td>
+            <td style="text-align: center;"><%=cust.getLname() %></td>
+            <td style="text-align: center;"><%=cust.getEmail() %></td>
+            <td style="text-align: center;"><%=cust.getMno() %></td>
             
-            <td id="cart_image">
-<%
-	String base64 = Base64.encodeBase64String(prod.getImage());
-	%>
-	<img height="300" width="300" alt="unknown"
-		src="data:image/jpeg;base64,<%=base64%>">
-			</td>
-            <td style="text-align: center;">
-               <h3><%=prod.getName() %></h3>
-            </td>
-            <td style="text-align: center;"><%=prod.getPrice() %></td>
-            <td style="text-align: center;"><%=prod.getSize() %></td>
+           
         </tr>
 <%} %>
         

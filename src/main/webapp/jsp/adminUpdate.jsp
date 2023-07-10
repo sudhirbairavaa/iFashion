@@ -72,54 +72,38 @@ table{
     <div class="main">
     <nav>
        <div class="container">
-        <div><a href="./pro.html" target="_blank" style="text-decoration: none;font-size: 20px;color: black;">Home</a></div>
-        <div><a href="./About.html" target="_blank" style="text-decoration: none;font-size: 20px;color: black;"> About </a></div>
-        <div><a href="./product.html" target="_blank" style="text-decoration: none;font-size: 20px;color: black;"> Product</a> </div>
-        <div><a href="./adminoperation.html" target="_blank" style="text-decoration: none;font-size: 20px;color: black;"> Admin Dashboard</a> </div>
-      </div>
+        <div><a href="/admin/home" target="_blank" style="text-decoration: none;font-size: 20px;color: black;">Home</a></div>
+       </div>
     </nav>
     <hr>
 
-    <form action="">
+    <form action="/admin/update" method="post"enctype="multipart/form-data">
         
         <h2 style="position: relative; left: 18em;">Update Product Details</h2>
         <table cellpadding="" cellspacing="8em">
             <tr>
                 <td class="td1"><label for="id"><strong>Id</strong></label></td>
-                <td><input type="text" name="" id="id" placeholder="Product Id" class="td2"></td>
+                <td><input type="text" name="id" id="id" placeholder="Product Id" class="td2"></td>
             </tr>
-            <tr>
-                <td class="td1"><label for="cat"><strong> Category</strong></label></td>
-                <td><input type="text" id="cat" placeholder="Men" class="td2"></td>
-            </tr>
-            <tr>
-                <td class="td1" ><label for="sub"><strong>Subcategory</strong></label></td>
-                <td><input type="text" id="sub" placeholder="category"  class="td2"></td>
-            </tr>
+           
             <tr>
                 <td class="td1" ><label for="fname"><strong>Name</stong></label></td>
-                <td><input type="text" id="fname" placeholder="Full name"  class="td2"></td>
+                <td><input type="text" name="name" id="fname" placeholder="Full name"  class="td2"></td>
             </tr>
             <tr>
                 <td class="td1" ><label for="brand"><strong>Brand</strong></label></td>
-                <td><input type="text" id="brand" placeholder="adidas"  class="td2"></td>
+                <td><input type="text" name="brand" id="brand" placeholder="adidas"  class="td2"></td>
             </tr>
             <tr>
                 <td class="td1"  ><label for="price"><Strong>Price</Strong></label></td>
-                <td><input type="text" id="price" placeholder="price"  class="td2"></td>
+                <td><input type="text" name="price" id="price" placeholder="price"  class="td2"></td>
             </tr>
             <tr>
                 <td class="td1" ><label for="img"><strong>Image</strong></label></td>
-                <td ><input type="file"  src="" class="td2" id="img" style="border: 1px solid; background-color: white;"></td>
+                <td ><input type="file" name="pic" src="" class="td2" id="img" style="border: 1px solid; background-color: white;"></td>
             </tr>
-            <tr>
-                <td class="td1" ><label for="color"><strong>Color</strong></label></td>
-                <td><input type="color" name="" id="color"  class="td2"></td>
-            </tr>
-            <tr>
-                <td class="td1" ><label for="size"><strong>Size</strong></label></td>
-                <td><input type="text" id="size" placeholder="s"  class="td2"></td>
-            </tr>
+            
+         
             <tr>
                 <td><td>
                 <td style="position: relative; left: -47em;"><button value="Insert" style="background-color: orange; border: 10px white; height: 2.2em; width: 8em;  font-size: 1em; color: aliceblue;"><strong>Update</strong></button></td>
